@@ -1,55 +1,93 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!-- SYNC IMPACT REPORT:
+Version change: N/A (initial creation) → 1.0.0
+Added sections: All sections as this is initial creation
+Removed sections: N/A
+Templates requiring updates: 
+- ✅ .specify/templates/plan-template.md - updated to align with principles
+- ✅ .specify/templates/spec-template.md - updated to align with principles  
+- ✅ .specify/templates/tasks-template.md - updated to align with principles
+- ⚠ .specify/templates/commands/*.md - review for any outdated references
+- ⚠ README.md - update references to principles if they exist
+Follow-up TODOs: None
+-->
+
+# Todo In-Memory Python Console App Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### Spec-Driven Approach
+All development starts with specifications. Specs must be written in YAML format, versioned in the 'specs_history' folder (e.g., spec_v1.yaml). Each spec iteration refines the previous one based on feedback or new requirements.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### Clean Code Standards
+Follow PEP 8. Use meaningful variable names, type hints, docstrings, and modular structure. Avoid global variables; prefer classes (e.g., Task class, TodoManager class).
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### Minimalism
+No external dependencies beyond built-in Python modules unless absolutely necessary. Keep the app lightweight and focused on MVP.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### Error Handling
+Gracefully handle invalid inputs, non-existent IDs, and edge cases (e.g., empty list). Use try-except where appropriate.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### Testing
+Specs should include example use cases. Manually test features and document in README.md.
 
-### [PRINCIPLE_6_NAME]
+### AI Assistance Rules
+When using tools like Claude or Qwen:
+- Generate specs first, then code.
+- Ensure outputs align with this constitution.
+- Do not introduce features outside the five core ones.
+- Prioritize readability and simplicity over optimization.
 
+## Feature Specifications Guidelines
 
-[PRINCIPLE__DESCRIPTION]
+### Task Structure
+Each task has: ID (int, auto-increment), Title (str), Description (str), Completed (bool, default False).
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### CLI Interface
+Use a menu-driven loop (e.g., print options, input choice). Commands: 1=Add, 2=View, 3=Update, 4=Delete, 5=Mark, 0=Exit.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### Add Task
+Prompt for title and description; assign ID; add to list.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### Delete Task
+Prompt for ID; remove if exists.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### Update Task
+Prompt for ID; then new title/description.
+
+### View Task List
+Print tasks with format: "[ID] [Status] Title: Description" (Status: [X] complete, [ ] incomplete).
+
+### Mark as Complete
+Prompt for ID; toggle completed flag.
+
+## Project Structure Rules
+
+### Directory Structure
+- Root: constitution.txt, README.md, specs_history/ (with .yaml files), src/ (with .py files).
+- src/main.py: Entry point with CLI loop.
+- src/todo.py: Core logic (classes/functions for tasks).
+- README.md: Include setup (uv init, uv run), usage examples, and feature demos.
+
+## Iteration Process
+
+### Development Cycle
+1. Write/refine spec in specs_history.
+2. Use Spec-Kit Plus to generate/validate code.
+3. Test and commit.
+4. If changes needed, create new spec version.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+### Amendment Process
+Changes to this constitution require explicit documentation and approval. Any modifications to core principles must be justified with clear rationale and impact assessment.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+### Versioning Policy
+This constitution follows semantic versioning:
+- MAJOR: Backward incompatible governance/principle removals or redefinitions
+- MINOR: New principle/section added or materially expanded guidance
+- PATCH: Clarifications, wording, typo fixes, non-semantic refinements
+
+### Compliance Review
+All code submissions must be reviewed for compliance with these principles. Code reviews should verify adherence to the specified architecture, error handling, and testing requirements.
+
+**Version**: 1.0.0 | **Ratified**: 2025-01-01 | **Last Amended**: 2025-01-01

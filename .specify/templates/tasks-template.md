@@ -48,9 +48,10 @@ description: "Task list template for feature implementation"
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Create project structure per implementation plan
-- [ ] T002 Initialize [language] project with [framework] dependencies
-- [ ] T003 [P] Configure linting and formatting tools
+- [ ] T001 Create project structure per implementation plan with src/ and specs_history/ directories
+- [ ] T002 Initialize Python 3.13+ project with UV packaging
+- [ ] T003 [P] Configure linting and formatting tools for PEP 8 compliance
+- [ ] T004 Create initial YAML specification in specs_history/ following spec-driven approach
 
 ---
 
@@ -88,12 +89,12 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Implementation for User Story 1
 
-- [ ] T012 [P] [US1] Create [Entity1] model in src/models/[entity1].py
-- [ ] T013 [P] [US1] Create [Entity2] model in src/models/[entity2].py
-- [ ] T014 [US1] Implement [Service] in src/services/[service].py (depends on T012, T013)
-- [ ] T015 [US1] Implement [endpoint/feature] in src/[location]/[file].py
-- [ ] T016 [US1] Add validation and error handling
-- [ ] T017 [US1] Add logging for user story 1 operations
+- [ ] T012 [P] [US1] Create Task class in src/todo.py with ID, Title, Description, Completed attributes
+- [ ] T013 [P] [US1] Create TodoManager class in src/todo.py for task management
+- [ ] T014 [US1] Implement Add Task functionality in TodoManager (depends on T012, T013)
+- [ ] T015 [US1] Implement CLI interface for Add Task in src/main.py
+- [ ] T016 [US1] Add validation and error handling for Add Task
+- [ ] T017 [US1] Add type hints and docstrings following PEP 8 standards
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 

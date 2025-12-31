@@ -1,0 +1,20 @@
+name: todo-cli-app
+version: 1.0.0
+description: A simple command-line todo application with in-memory storage
+features:
+  - add_task: Add a new task with title and description
+  - view_tasks: View all tasks with their status
+  - update_task: Update task title and description by ID
+  - delete_task: Delete a task by ID with confirmation
+  - mark_complete: Toggle completion status of a task by ID
+constraints:
+  - python_version: "3.13+"
+  - dependencies: "stdlib only"
+  - storage: "in-memory only"
+  - interface: "menu-driven CLI"
+data_model:
+  task:
+    id: int
+    title: str
+    description: str
+    completed: bool

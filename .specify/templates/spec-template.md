@@ -84,16 +84,18 @@
 
 ### Functional Requirements
 
-- **FR-001**: System MUST [specific capability, e.g., "allow users to create accounts"]
-- **FR-002**: System MUST [specific capability, e.g., "validate email addresses"]  
-- **FR-003**: Users MUST be able to [key interaction, e.g., "reset their password"]
-- **FR-004**: System MUST [data requirement, e.g., "persist user preferences"]
-- **FR-005**: System MUST [behavior, e.g., "log all security events"]
+- **FR-001**: System MUST follow spec-driven approach with YAML specifications in specs_history/
+- **FR-002**: System MUST adhere to PEP 8 standards with type hints and docstrings
+- **FR-003**: System MUST implement five core features: Add Task, Delete Task, Update Task, View Task List, Mark as Complete
+- **FR-004**: System MUST store tasks in memory only (no persistence)
+- **FR-005**: System MUST handle errors gracefully for invalid inputs and edge cases
+- **FR-006**: System MUST use Task and TodoManager classes for modular structure
+- **FR-007**: System MUST use only built-in Python modules (no external dependencies)
 
 *Example of marking unclear requirements:*
 
-- **FR-006**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
-- **FR-007**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
+- **FR-008**: System MUST use Python [NEEDS CLARIFICATION: version requirement - Python 3.13+ specified in constitution]
+- **FR-009**: System MUST use [NEEDS CLARIFICATION: packaging tool - UV specified in constitution]
 
 ### Key Entities *(include if feature involves data)*
 
